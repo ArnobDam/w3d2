@@ -66,11 +66,15 @@ class Board
     end
 
     def reveal
-
-        card_1 = @grid[get_pos]
+        
+        input1 = get_pos
+        #debugger
+        card_1 = self[input1]
         card_1.reveal_card
         render
-        card_2 = @grid[get_pos]
+
+        input2 = get_pos
+        card_2 = self[input2]
         card_2.reveal_card
         render
 
@@ -78,7 +82,12 @@ class Board
             card_1.hide_card
             card_2.hide_card
         end
-        
+        render
+    end
+
+    def won?
+        flat_arr = @board.flatten
+        flat_arr.all? {|card| card.face_up == true}
     end
 end
 

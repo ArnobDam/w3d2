@@ -1,15 +1,15 @@
 class Card
 
     attr_reader :value
-    
+
     def initialize(value)
         @value = value
         @face_up = false
     end
 
-    # def reveal
-    #     @face_up = true if @face_up == false
-    # end
+    def reveal
+        @face_up = true
+    end
 
     def display
         if @face_up == true

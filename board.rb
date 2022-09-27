@@ -47,9 +47,21 @@ class Board
             puts arr.join(' ')
         end
     end
+
+    def get_pos
+        p 'Please enter position of cards with formatting row,column (ie. 1,2)'
+        pos = gets.chomp
+        pos_str_arr = pos.split(',')
+        position = [pos_str_arr[0].to_i, pos_str_arr[1].to_i]
+    end
+
+    def reveal
+        
+    end
 end
 
 board = Board.new
 board.populate
 board.render
+p board.get_pos
 #board.random_value_pairs

@@ -2,20 +2,20 @@ require 'byebug'
 require_relative 'card.rb'
 require_relative 'board.rb'
 
-def Game
+class Game
 
     def initialize
         @board = Board.new
-        #play
+        play
     end
 
     def play
-
+        @board.populate
 
         while !@board.won?
-            debugger
+            #debugger
             @board.reveal
-            debugger
+            #debugger
         end
     end
 

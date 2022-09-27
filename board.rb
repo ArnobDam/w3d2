@@ -86,7 +86,8 @@ class Board
     end
 
     def won?
-        flat_arr = @board.flatten
+        flat_arr = @grid.flatten
+        # debugger
         flat_arr.all? {|card| card.face_up == true}
     end
 end
@@ -97,3 +98,4 @@ end
 # p board.get_pos
 # board.random_value_pairs
 # board.reveal
+# p board.won?

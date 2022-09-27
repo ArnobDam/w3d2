@@ -12,8 +12,11 @@ class Card
     # end
 
     def display
-        @face_up = true
-        p value
+        if @face_up == true
+            return value
+        else
+            return ' '
+        end
         # if @face_up == true
         #     p value
         # end       

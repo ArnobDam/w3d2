@@ -37,10 +37,14 @@ class Board
     def render
         #populate
         @grid.each do |row|
+            arr= []
             row.each do |card|
-                card.display
+                #debugger
+                arr << card.display
+                
+                #card.display
             end
-            puts
+            puts arr.join(' ')
         end
     end
 end

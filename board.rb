@@ -1,24 +1,27 @@
 require 'byebug'
+require_relative 'card.rb'
+
 class Board
 
     attr_reader :size
 
     def initialize(size=4)
         @size = size
-        @grid = Array.new(size) {Array.new}
+        @grid = Array.new(size) {Array.new(size)}
     end
 
     def populate
         arr = random_value_pairs
-        debugger
-        arr.each do |val|
-            @grid.each do |row|
-                (row.length-1).times do 
-                    debugger
-                    row << Card.new(val)
-                end
+        #debugger
+        
+        index = 0
+        (0...@grid.length).each do |i|
+            (0...@grid.length).each do |j|
+                @grid[i][j] = Card.new(arr[index])
+                index += 1
             end
         end
+        
         @grid
         #debugger
     end
@@ -31,8 +34,18 @@ class Board
         value_pairs.sample(value_pairs.length)
     end
     
+    def render
+        #populate
+        @grid.each do |row|
+            row.each do |card|
+                card.display
+            end
+            puts
+        end
+    end
 end
 
 board = Board.new
 board.populate
-board.random_value_pairs
+board.render
+#board.random_value_pairs

@@ -55,7 +55,29 @@ class Board
         position = [pos_str_arr[0].to_i, pos_str_arr[1].to_i]
     end
 
+    def [](pos_arr)
+        row,col = pos_arr
+        @grid[row][col]
+    end
+
+    def []=(pos_arr,val)
+        row,col = pos_arr
+        @grid[row][col] = val
+    end
+
     def reveal
+
+        card_1 = @grid[get_pos]
+        card_1.reveal_card
+        render
+        card_2 = @grid[get_pos]
+        card_2.reveal_card
+        render
+
+        if card_1.value != card_2.value
+            card_1.hide_card
+            card_2.hide_card
+        end
         
     end
 end
@@ -63,5 +85,6 @@ end
 board = Board.new
 board.populate
 board.render
-p board.get_pos
+#p board.get_pos
 #board.random_value_pairs
+board.reveal

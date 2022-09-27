@@ -7,8 +7,12 @@ class Card
         @face_up = false
     end
 
-    def reveal
+    def reveal_card
         @face_up = true
+    end
+
+    def hide_card
+        @face_up = false
     end
 
     def display

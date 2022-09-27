@@ -4,8 +4,8 @@ require_relative 'board.rb'
 
 class Game
 
-    def initialize
-        @board = Board.new
+    def initialize(size=4)
+        @board = Board.new(size)
         play
     end
 
@@ -20,9 +20,12 @@ class Game
     end
 
     def game_over?
-        return true if @board.won?
+        if @board.won?
+            p "You Win!"
+            return true
+        end
         false
     end
 end
 
-new_game = Game.new
+new_game = Game.new(5)

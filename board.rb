@@ -36,7 +36,11 @@ class Board
     
     def render
         #populate
-        @grid.each do |row|
+        index_arr = (0...size).to_a
+        index_str = index_arr.join(' ')
+        puts '  ' + index_str
+        # puts '  0 1 2 3'
+        @grid.each_with_index do |row,i|
             arr= []
             row.each do |card|
                 #debugger
@@ -44,9 +48,11 @@ class Board
                 
                 #card.display
             end
-            puts arr.join(' ')
+            puts i.to_s + ' ' + arr.join(' ')
         end
     end
+
+    
 
     def get_pos
         p 'Please enter position of cards with formatting row,column (ie. 1,2)'
@@ -81,6 +87,9 @@ class Board
         if card_1.value != card_2.value
             card_1.hide_card
             card_2.hide_card
+            p 'Try Again'
+        else
+            p "It's a Match!"
         end
         render
     end

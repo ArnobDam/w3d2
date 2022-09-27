@@ -17,15 +17,16 @@ class Game
             @board.reveal
             #debugger
         end
+        p "You Win!"
     end
 
-    def game_over?
-        if @board.won?
-            p "You Win!"
-            return true
-        end
-        false
-    end
+    # def game_over?
+    #     if @board.won?
+    #         p "You Win!"
+    #         return true
+    #     end
+    #     false
+    # end
 end
 
-new_game = Game.new(5)
+new_game = Game.new(2)

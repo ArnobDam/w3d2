@@ -72,17 +72,20 @@ class Board
     end
 
     def reveal
-        
+        system("clear")
         input1 = get_pos
         #debugger
         card_1 = self[input1]
         card_1.reveal_card
+        system("clear")
         render
 
         input2 = get_pos
         card_2 = self[input2]
         card_2.reveal_card
+        system("clear")
         render
+        sleep(1.5)
 
         if card_1.value != card_2.value
             card_1.hide_card
@@ -91,7 +94,7 @@ class Board
         else
             p "It's a Match!"
         end
-        render
+        #render
     end
 
     def won?

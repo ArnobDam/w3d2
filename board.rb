@@ -91,9 +91,9 @@ class Board
     end
 end
 
-board = Board.new
-board.populate
-board.render
-#p board.get_pos
-#board.random_value_pairs
-board.reveal
+# board = Board.new
+# board.populate
+# board.render
+# p board.get_pos
+# board.random_value_pairs
+# board.reveal

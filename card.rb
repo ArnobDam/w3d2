@@ -1,18 +1,20 @@
 class Card
 
-    def initialize
+    def initialize(value)
         @value = value
-        @face_up = face_up
+        @face_up = false
     end
 
-    def reveal
-        @face_up = true if @face_up == false
-    end
+    # def reveal
+    #     @face_up = true if @face_up == false
+    # end
 
     def display
-        if @face_up == true
-            p value
-        else
-            
+        @face_up = true
+        p value
+        # if @face_up == true
+        #     p value
+        # end       
     end
+
 end
